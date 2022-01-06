@@ -19,14 +19,14 @@ function App(props) {
     setLikePics({ ...likePics });
   }, []);
 
-  // React.useEffect(() => {
-  //   const likeStatus = window.localStorage.getItem("likeStatus");
-  //   setLikePics(JSON.parse(likeStatus));
-  // }, []);
+  React.useEffect(() => {
+    const likeStatus = window.localStorage.getItem("likeStatus");
+    setLikePics({ ...JSON.parse(likeStatus) });
+  }, []);
 
-  // React.useEffect(() => {
-  //   window.localStorage.setItem("likeStatus", JSON.stringify(likePics));
-  // })
+  React.useEffect(() => {
+    window.localStorage.setItem("likeStatus", JSON.stringify(likePics));
+  })
 
   const handleClickLike = (key) => {
     likePics[key] = !likePics[key];
