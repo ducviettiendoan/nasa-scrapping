@@ -10,6 +10,7 @@ function App(props) {
   const [likePics, setLikePics] = useState({});
   React.useEffect(() => {
     props.getApod();
+    console.log(props.pictures);
     if (props.pictures) {
       props.pictures.map((picture, i) => {
         return likePics[i] = false;
@@ -18,14 +19,14 @@ function App(props) {
     setLikePics({ ...likePics });
   }, []);
 
-  React.useEffect(() => {
-    const likeStatus = window.localStorage.getItem("likeStatus");
-    setLikePics(JSON.parse(likeStatus));
-  }, []);
+  // React.useEffect(() => {
+  //   const likeStatus = window.localStorage.getItem("likeStatus");
+  //   setLikePics(JSON.parse(likeStatus));
+  // }, []);
 
-  React.useEffect(() => {
-    window.localStorage.setItem("likeStatus", JSON.stringify(likePics));
-  })
+  // React.useEffect(() => {
+  //   window.localStorage.setItem("likeStatus", JSON.stringify(likePics));
+  // })
 
   const handleClickLike = (key) => {
     likePics[key] = !likePics[key];

@@ -21,12 +21,9 @@ function SpaceCard(props) {
         <div>{props.explanation}</div>
       </section>
       <Button className="like" onClick={() => { props.handleClickLike(props.id) }}>
-        {/* {!props.likePics[props.id] ? <FavoriteBorderIcon /> : <FavoriteIcon sx={{ color: "red" }} />} */}
-        Like
+        {!props.likePics[props.id] ? <FavoriteBorderIcon /> : <FavoriteIcon sx={{ color: "red" }} />}
         <span className="likeLabel">Like</span>
       </Button>
-
-
     </Card>
 
   );
