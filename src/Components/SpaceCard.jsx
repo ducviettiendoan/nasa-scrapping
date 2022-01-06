@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import "../style/card.css";
 import Button from '@mui/material/Button';
 import { Card } from '@mui/material';

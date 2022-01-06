@@ -31,7 +31,6 @@ function App(props) {
     likePics[key] = !likePics[key];
     setLikePics({ ...likePics });
   }
-  console.log(likePics);
   return (
     <div>
       {props.pictures ? <div className="App">
