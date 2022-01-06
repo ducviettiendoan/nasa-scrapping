@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/shopify-frontend-challege/static/css/main.7ed8bc4c.css",
-    "main.js": "/shopify-frontend-challege/static/js/main.8671391a.js",
+    "main.js": "/shopify-frontend-challege/static/js/main.2077fb10.js",
     "index.html": "/shopify-frontend-challege/index.html",
     "main.7ed8bc4c.css.map": "/shopify-frontend-challege/static/css/main.7ed8bc4c.css.map",
-    "main.8671391a.js.map": "/shopify-frontend-challege/static/js/main.8671391a.js.map"
+    "main.2077fb10.js.map": "/shopify-frontend-challege/static/js/main.2077fb10.js.map"
   },
   "entrypoints": [
     "static/css/main.7ed8bc4c.css",
-    "static/js/main.8671391a.js"
+    "static/js/main.2077fb10.js"
   ]
 }
