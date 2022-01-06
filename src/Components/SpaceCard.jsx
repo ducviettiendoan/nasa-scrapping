@@ -5,9 +5,6 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function SpaceCard(props) {
-  // const onLikeClick = () => {
-  //   setLike(prev => !prev);
-  // }
 
   return (
     <Card className="card">
@@ -24,7 +21,8 @@ function SpaceCard(props) {
         <div>{props.explanation}</div>
       </section>
       <Button className="like" onClick={() => { props.handleClickLike(props.id) }}>
-        {!props.likePics[props.id] ? <FavoriteBorderIcon /> : <FavoriteIcon sx={{ color: "red" }} />}
+        {/* {!props.likePics[props.id] ? <FavoriteBorderIcon /> : <FavoriteIcon sx={{ color: "red" }} />} */}
+        Like
         <span className="likeLabel">Like</span>
       </Button>
 
