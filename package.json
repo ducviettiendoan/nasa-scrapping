@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d public src"
   },
   "eslintConfig": {
     "extends": [
