@@ -50,5 +50,6 @@
   },
   "devDependencies": {
     "gh-pages": "^3.2.3"
-  }
+  },
+  "homepage": "https://ducviettiendoan.github.io/shopify-frontend-challege/"
 }
