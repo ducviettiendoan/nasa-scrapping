@@ -1,25 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import './style/App.css';
+import React, { useState } from 'react';
+import SpaceCard from './Components/SpaceCard';
+import { connect } from "react-redux";
+import { getApod } from "./actions/actions";
+import { Grid } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 
-function App() {
+function App(props) {
+  const [likePics, setLikePics] = useState({});
+  React.useEffect(() => {
+    props.getApod();
+    if (props.pictures) {
+      props.pictures.map((picture, i) => {
+        return likePics[i] = false;
+      })
+    }
+    setLikePics({ ...likePics });
+  }, []);
+
+  React.useEffect(() => {
+    const likeStatus = window.localStorage.getItem("likeStatus");
+    setLikePics(JSON.parse(likeStatus));
+  }, []);
+
+  React.useEffect(() => {
+    window.localStorage.setItem("likeStatus", JSON.stringify(likePics));
+  })
+
+  const handleClickLike = (key) => {
+    likePics[key] = !likePics[key];
+    setLikePics({ ...likePics });
+  }
+  console.log(likePics);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {props.pictures ? <div className="App">
+        <Grid container>
+          {props.pictures.map((picture, i) => {
+            return (
+              <Grid item xs={4} style={{ padding: "0px 16px" }}>
+                <SpaceCard
+                  copyright={picture.copyright}
+                  date={picture.date}
+                  explanation={picture.explanation}
+                  title={picture.title}
+                  url={picture.url}
+                  id={i}
+                  handleClickLike={handleClickLike}
+                  likePics={likePics} />
+              </Grid>
+            )
+          })}
+        </Grid>
+      </div>
+        :
+        <CircularProgress style={{ position: 'absolute', top: "50%", right: "50%" }} />
+      }
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({ pictures }) => {
+  return {
+    pictures: pictures.pictures,
+    reload: pictures.reload,
+  };
+};
+
+const mapDispatchToProps = {
+  getApod,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
