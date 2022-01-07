@@ -53,7 +53,28 @@ function App(props) {
     setLikePics({ ...likePics });
   }
 
+  //util function to check  valid Date
+  const isValidDate = (d) => {
+    return d instanceof Date && !isNaN(d);
+  }
+
   const handleChangeInterval = () => {
+    if (!isValidDate(valueStart) || !isValidDate(valueEnd)) {
+      alert("Start Date or End Date is invalid!");
+      return;
+    }
+    else if (valueStart > valueEnd) {
+      alert("Start Date is greater than End Date");
+      return;
+    }
+    else if (valueStart < new Date("09/01/2021") || valueStart > new Date()) {
+      alert("Start Date is out of range");
+      return;
+    }
+    else if (valueEnd < new Date("09/01/2021") || valueEnd > new Date()) {
+      alert("End Date is out of range");
+      return;
+    }
     const startDate = String(valueStart.getFullYear()) + '-' + String(valueStart.getMonth() + 1) + '-' + String(valueStart.getDate());
     const endDate = String(valueEnd.getFullYear()) + '-' + String(valueEnd.getMonth() + 1) + '-' + String(valueEnd.getDate());
     props.updateTimeRange(startDate, endDate);
@@ -69,6 +90,8 @@ function App(props) {
         <LocalizationProvider dateAdapter={AdapterDateFns} >
           <DatePicker
             label="Start Date"
+            minDate={new Date("09/01/2021")}
+            maxDate={new Date()}
             value={valueStart}
             onChange={(newValue) => {
               setValueStart(newValue);
@@ -77,6 +100,8 @@ function App(props) {
           />
           <DatePicker
             label="End Date"
+            minDate={new Date("09/01/2021")}
+            maxDate={new Date()}
             value={valueEnd}
             onChange={(newValue) => {
               setValueEnd(newValue);
