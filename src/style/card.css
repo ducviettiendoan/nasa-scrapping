@@ -1,6 +1,17 @@
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.header{
+    padding-left: 16px;
+}
+.dateRangeContainer{
+    padding: 16px;
+}
+.searchButton{
+    border: 2px solid black !important;
+    color: black !important;
+    margin: 6px 0px 0px 16px !important;
+}
 .like{
     color: black !important;
     border: solid 2px black !important;
@@ -44,4 +55,9 @@ body{
     font-size: 12px;
     font-weight: 700;
     text-transform: initial;
+}
+.progressLoading{
+    position: absolute;
+    top: 50%;
+    right: 50%;
 }
